@@ -1,0 +1,112 @@
+﻿@model GAPDOLLS.Models.DollSkinToneViewModel
+
+@{
+    ViewData["Skin Tone"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-controller="Dolls" asp-action="Index">
+    <p>
+        <select asp-for="DollSkinTone" asp-items="Model.SkinTone">
+            <option value="">All</option>
+        </select>
+
+        Skin Tone: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dolls! [0].Material)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Dolls![0].Color)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Dolls![0].ManufactureDate)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Dolls![0].Articulation)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Dolls![0].Price)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Dolls![0].Rating)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Dolls![0].Size)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Dolls![0].EyeColor)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Dolls![0].SkinTone)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Dolls![0].Outfit)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Dolls![0].Accessories)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Dolls![0].Washability)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Dolls!) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufactureDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Articulation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EyeColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SkinTone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Outfit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accessories)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Washability)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
