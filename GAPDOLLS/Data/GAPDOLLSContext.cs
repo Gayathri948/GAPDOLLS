@@ -15,5 +15,10 @@ namespace GAPDOLLS.Data
         }
 
         public DbSet<GAPDOLLS.Models.Dolls> Dolls { get; set; } = default!;
+
+        public static implicit operator GAPDOLLSContext(ApplicationDbContext v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

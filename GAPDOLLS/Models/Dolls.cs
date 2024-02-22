@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GAPDOLLS.Models;
-
 public class Dolls
 {
     public int Id { get; set; }
@@ -13,6 +13,9 @@ public class Dolls
     public DateTime ManufactureDate { get; set; }
     public string? Articulation { get; set; }
     [Column(TypeName = "decimal(18, 2)")]
+    [Range(1, 100)]
+    [DataType(DataType.Currency)]
+
     public decimal Price { get; set; }
     [Column(TypeName = "decimal(18, 2)")]
     public decimal Rating { get; set; }

@@ -18,6 +18,7 @@ namespace GAPDOLLS.Controllers
             return View();
         }
 
+
         public IActionResult Privacy()
         {
             return View();
