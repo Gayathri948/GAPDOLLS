@@ -47,11 +47,17 @@ title as route data....Changed back...added <form> in index file
 ###part 9 added validation to an ASP.NET...Updated the movies class...Run app..and navigated Movies controller.
 ....
 
-Aarti: I did clone repositry.Tried doing authentication. Got Few errors. Then I take a help from google and tried to solve it. aslo edited readme file.
+Aarti:
 
-Gayatri:Sucessfully done authentication by following the steps. After that i have pushed the file.
+I did clone repositry.Tried doing authentication. Got Few errors. Then I take a help from google and tried to solve it. aslo edited readme file.
 
-Panthini : Created account on assure. Got 100$ credit. Then I helped Arti and Gayatri to sign up the account. Edit readme.
+Gayatri:
+
+Sucessfully done authentication by following the steps. After that i have pushed the file.
+
+Panthini :
+
+Created account on assure. Got 100$ credit. Then I helped Arti and Gayatri to sign up the account. Edit readme.
 
 
 
