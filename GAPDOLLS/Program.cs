@@ -11,12 +11,12 @@ builder.Services.AddDbContext<GAPDOLLSContext>(options =>
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<GAPDOLLSContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddEntityFrameworkStores<GAPDOLLSContext>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -24,7 +24,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
-    //SeedData.Initialize(services);
+    SeedData.Initialize(services);
 }
 
 // Configure the HTTP request pipeline.

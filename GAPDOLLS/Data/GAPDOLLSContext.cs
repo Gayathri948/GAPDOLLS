@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using GAPDOLLS.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace GAPDOLLS.Data
 {
-    public class GAPDOLLSContext : DbContext
+    public class GAPDOLLSContext : IdentityDbContext
     {
         public GAPDOLLSContext (DbContextOptions<GAPDOLLSContext> options)
             : base(options)
@@ -15,10 +16,7 @@ namespace GAPDOLLS.Data
         }
 
         public DbSet<GAPDOLLS.Models.Dolls> Dolls { get; set; } = default!;
+        public DbSet<GAPDOLLS.Models.Customer> Customer { get; set; }
 
-        public static implicit operator GAPDOLLSContext(ApplicationDbContext v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
