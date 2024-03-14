@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'GAPDOLLS'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3FB262131FC744CC80762974D2C6E1AB }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_53B69BEF5C3644E38C649DC4EB742449 }}
           package: .
