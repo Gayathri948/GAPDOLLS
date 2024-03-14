@@ -1,9 +1,10 @@
 using GAPDOLLS.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace GAPDOLLS.Controllers
-{
+{ 
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -12,12 +13,11 @@ namespace GAPDOLLS.Controllers
         {
             _logger = logger;
         }
-
+        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
-
 
         public IActionResult Privacy()
         {

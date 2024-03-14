@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GAPDOLLS.Data;
 using GAPDOLLS.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GAPDOLLS.Controllers
 {
@@ -20,7 +21,6 @@ namespace GAPDOLLS.Controllers
         }
 
         // GET: Dolls
-        // GET: Movies
         public async Task<IActionResult> Index(string DollSkinTone, string searchString)
         {
             if (_context.Dolls == null)
@@ -32,23 +32,23 @@ namespace GAPDOLLS.Controllers
             IQueryable<string> genreQuery = from m in _context.Dolls
                                             orderby m.SkinTone
                                             select m.SkinTone;
-            var movies = from m in _context.Dolls
+            var dolls = from m in _context.Dolls
                          select m;
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                movies = movies.Where(s => s.Material!.Contains(searchString));
+                dolls = dolls.Where(s => s.Material!.Contains(searchString));
             }
 
             if (!string.IsNullOrEmpty(DollSkinTone))
             {
-                movies = movies.Where(x => x.SkinTone == DollSkinTone);
+                dolls = dolls.Where(x => x.SkinTone == DollSkinTone);
             }
 
             var movieGenreVM = new DollSkinToneViewModel
             {
                 SkinTone = new SelectList(await genreQuery.Distinct().ToListAsync()),
-                Dolls = await movies.ToListAsync()
+                Dolls = await dolls.ToListAsync()
             };
 
             return View(movieGenreVM);
@@ -73,6 +73,7 @@ namespace GAPDOLLS.Controllers
         }
 
         // GET: Dolls/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -95,6 +96,7 @@ namespace GAPDOLLS.Controllers
         }
 
         // GET: Dolls/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -146,6 +148,7 @@ namespace GAPDOLLS.Controllers
         }
 
         // GET: Dolls/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
