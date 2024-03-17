@@ -51,34 +51,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-using(var scope = app.Services.CreateScope())
-{
-    var rolemanager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-    var roles = new[] { "Admin", "User" };
-
-    foreach (var role in roles)
-    {
-        await rolemanager.CreateAsync(new IdentityRole(role));
-    }
-}
-using (var scope = app.Services.CreateScope())
-{
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-
-    string email = "Dolls@gmail.com";
-    string password = "Dolls@123";
-
-    var adminUser = new IdentityUser
-    {
-        Email = email,
-        UserName = email,
-        EmailConfirmed = true,
-    };
-
-    await userManager.CreateAsync(adminUser, password);
-
-    await userManager.AddToRoleAsync(adminUser, "Admin");
-}
-
 app.Run();
