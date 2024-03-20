@@ -59,6 +59,8 @@ Panthini :
 
 Created account on assure. Got 100$ credit. Then I helped Arti and Gayatri to sign up the account. Edit readme.
 
+Worked on authetication and authorization .
+
 
 
 
